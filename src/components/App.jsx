@@ -1,59 +1,77 @@
-import React from "react"
+import React from "react";
+
+import CostPriceSingle from "./CostPriceSingle";
+// import EntryField from "./EntryField";
+// import SellingPriceSingle from "./SellingPriceSingle";
+
+import formula from "./formula";
 
 function App() {
+        function Calculation() {
+            var costPrice = document.getElementById("costPriceSingle").value;
+            // var sellPrice = document.getElementById("sellingPriceSingle").value;
 
-    function StartCalculation() {
-        console.log("YO");
-    }
+            console.log(costPrice);
+        };
 
-    return (
-        <>
-            <div>
-                Cost Price (1 Unit):
-                &nbsp;<input type="text" maxLength="3" />
-            </div>
+        return (
+            <>
+                <CostPriceSingle />
+                {/* <SellingPriceSingle /> */}
 
-            <div>
-                Selling Price:
-                &nbsp;<input type="text" maxLength="3" />
-            </div>
+                <div>
+                    Selling Price:
+                    <input
+                        type="number"
+                        min="1"
+                        max="999"
+                    />
+                </div>
 
-            <div>
-                Number of turnips sold:
-                &nbsp;<input type="text" maxLength="10" />
-            </div>
+                <div>
+                    Number of Turnips Sold:
+                    <input
+                        type="number"
+                        min="1"
+                        max="999999"
+                    />
+                </div>
 
-            <div>
-                Tip Percentage:
-                &nbsp;<input type="text" maxLength="2" />%
-            </div>
+                <div>
+                    Tip Percentage:
+                    <input
+                        type="number"
+                        min="1"
+                        max="99"
+                    />%
+                </div>
 
-            <div>
-                <button onClick={StartCalculation}>Calculate</button>
-            </div>
+                <div>
+                    <button onClick={Calculation}>Calculate</button>
+                </div>
 
-            <div>
-                Total Cost Price:
-            </div>
+                <div>
+                    Total Cost Price:
+                </div>
 
-            <div>
-                Sales:
-            </div>
+                <div>
+                    Sales:
+                </div>
 
-            <div>
-                Gross Profit:
-            </div>
+                <div>
+                    Gross Profit:
+                </div>
 
-            <div>
-                Tip:
-            </div>
+                <div>
+                    Tip:
+                </div>
 
-            <div>
-                Net Profit:
-            </div>
+                <div>
+                    Net Profit:
+                </div>
 
-        </>
-    );
-};
+            </>
+        );
+    };
 
 export default App;

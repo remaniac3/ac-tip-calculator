@@ -4,10 +4,12 @@ function EntryField(props) {
     return (
         <>
             <div>
+                <div>
+                    {props.entryLabel}
+                </div>
                 <input
                     type={props.inputType}
-                    min={props.minValue}
-                    max={props.maxValue}
+                    pattern="[0-9*]"
                     id={props.formParticular}
                 />
             </div>

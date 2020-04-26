@@ -21,14 +21,35 @@ function App() {
         setPrices(prevValue => {
             return {
                 ...prevValue,
-                [name] : value
+                [name] : value,
             };
         });
     }
 
-    function calcTotalCP() {
-        totalCP = prices.singleCostPrice * prices.numberOfTurnips
+    function Calculation() {
+
+        calcTotalCP();
+        calcTotalSP();
+        calcTotalGP();
+        calcTipAmount();
+        calcNetProfit();
+
+        console.log(totalCP)
+
+        // totalCP = prices.singleCostPrice * prices.numberOfTurnips
+        // totalSP = prices.singleSellPrice * prices.numberOfTurnips
+        // totalGP = totalSP - totalCP
+        // tipAmount = Math.round(totalGP * ( prices.tipPercentage / 100 ))
+        // netProfit = totalGP - tipAmount
+        
+        // console.log(totalCP, totalSP, totalGP, tipAmount, netProfit)
+
         return
+    };
+
+    function calcTotalCP() {
+        totalCP = prices.singleCostPrice * prices.numberOfTurnips;
+        document.getElementById("tCP").innerHTML = totalCP;
     };
 
     function calcTotalSP() {
@@ -50,25 +71,6 @@ function App() {
         netProfit = totalGP - tipAmount
         return
     }
-
-    function Calculation() {
-
-        calcTotalCP();
-        calcTotalSP();
-        calcTotalGP();
-        calcTipAmount();
-        calcNetProfit();
-
-        // totalCP = prices.singleCostPrice * prices.numberOfTurnips
-        // totalSP = prices.singleSellPrice * prices.numberOfTurnips
-        // totalGP = totalSP - totalCP
-        // tipAmount = Math.round(totalGP * ( prices.tipPercentage / 100 ))
-        // netProfit = totalGP - tipAmount
-        
-        // console.log(totalCP, totalSP, totalGP, tipAmount, netProfit)
-
-        return
-    };
 
     return (
         <>
@@ -115,32 +117,30 @@ function App() {
             <hr />
 
             <div>
-                <button onClick={Calculation}>Calculate</button>
+                <button onClick={Calculation} type="submit">Calculate</button>
             </div>
 
             <hr/>
 
             <div>
-                Total Cost Price: 
-                <span>
-                    {prices.singleCostPrice}
-                </span>
+                Total Cost Price:
+                <span id="tCP">0</span>
             </div>
 
             <div>
-                Total Sales Price: {calcTotalSP()}
+                Total Sales Price:
             </div>
 
             <div>
-                Gross Profit: {calcTotalGP()}
+                Gross Profit:
             </div>
 
             <div>
-                Tip Amount: {Calculation()}
+                Tip Amount:
             </div>
 
             <div>
-                Net Profit: {Calculation()}
+                Net Profit:
             </div>
         </>
     );

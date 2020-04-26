@@ -1,31 +1,18 @@
 import React, { useState } from "react";
 
-import ResultField from "./ResultField";
-import formulae from "../formulae";
-
-function createResults(result) {
-    return(
-        <ResultField
-            key={result.id}
-            particulars={result.fullName}
-            calculationTarget={result.target}
-        />
-    );
-}
-
 function App() {
 
-    var totalCP = 0;
-    var totalSP = 0;
-    var totalGP = 0;
-    var tipAmount = 0;
-    var netProfit = 0;
+    let totalCP = 0;
+    let totalSP = 0;
+    let totalGP = 0;
+    let tipAmount = 0;
+    let netProfit = 0;
 
     const [prices, setPrices] = useState({
         singleCostPrice: "",
         singleSellPrice: "",
         numberOfTurnips: "",
-        tipPercentage: ""
+        tipPercentage: "",
     });
 
     function handleChange(event) {
@@ -39,14 +26,48 @@ function App() {
         });
     }
 
-    function Calculation() {
+    function calcTotalCP() {
         totalCP = prices.singleCostPrice * prices.numberOfTurnips
-        totalSP = prices.singleSellPrice * prices.numberOfTurnips
-        totalGP = totalSP - totalCP
-        tipAmount = Math.round(totalGP * ( prices.tipPercentage / 100 ))
-        netProfit = totalGP - tipAmount
+        return
+    };
 
-        console.log(totalCP, totalSP, totalGP, tipAmount, netProfit)
+    function calcTotalSP() {
+        totalSP = prices.singleSellPrice * prices.numberOfTurnips
+        return
+    }
+
+    function calcTotalGP() {
+        totalGP = totalSP - totalCP
+        return
+    }
+
+    function calcTipAmount() {
+        tipAmount = Math.round(totalGP * ( prices.tipPercentage / 100 ))
+        return
+    }
+
+    function calcNetProfit() {
+        netProfit = totalGP - tipAmount
+        return
+    }
+
+    function Calculation() {
+
+        calcTotalCP();
+        calcTotalSP();
+        calcTotalGP();
+        calcTipAmount();
+        calcNetProfit();
+
+        // totalCP = prices.singleCostPrice * prices.numberOfTurnips
+        // totalSP = prices.singleSellPrice * prices.numberOfTurnips
+        // totalGP = totalSP - totalCP
+        // tipAmount = Math.round(totalGP * ( prices.tipPercentage / 100 ))
+        // netProfit = totalGP - tipAmount
+        
+        // console.log(totalCP, totalSP, totalGP, tipAmount, netProfit)
+
+        return
     };
 
     return (
@@ -58,6 +79,7 @@ function App() {
                     onChange={handleChange}
                     value={prices.singleCostPrice}
                 />
+                {prices.singleCostPrice}
             </div>
 
             <div>
@@ -67,6 +89,7 @@ function App() {
                     onChange={handleChange}
                     value={prices.singleSellPrice}
                 />
+                {prices.singleSellPrice}
             </div>
 
             <div>
@@ -76,6 +99,7 @@ function App() {
                     onChange={handleChange}
                     value={prices.numberOfTurnips}
                 />
+                {prices.numberOfTurnips}
             </div>
 
             <div>
@@ -85,6 +109,7 @@ function App() {
                     onChange={handleChange}
                     value={prices.tipPercentage}
                 />
+                {prices.tipPercentage}
             </div>
 
             <hr />
@@ -96,7 +121,26 @@ function App() {
             <hr/>
 
             <div>
-                {formulae.map(createResults)}
+                Total Cost Price: 
+                <span>
+                    {prices.singleCostPrice}
+                </span>
+            </div>
+
+            <div>
+                Total Sales Price: {calcTotalSP()}
+            </div>
+
+            <div>
+                Gross Profit: {calcTotalGP()}
+            </div>
+
+            <div>
+                Tip Amount: {Calculation()}
+            </div>
+
+            <div>
+                Net Profit: {Calculation()}
             </div>
         </>
     );

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+// import NumberFormat from "react-number-format";
+import "./layout.css"
 
 function App() {
+
+    // var NumberFormat = require("react-number-format");
 
     let totalCP = 0;
     let totalSP = 0;
@@ -27,49 +31,37 @@ function App() {
     }
 
     function Calculation() {
-
         calcTotalCP();
         calcTotalSP();
         calcTotalGP();
         calcTipAmount();
         calcNetProfit();
-
-        console.log(totalCP)
-
-        // totalCP = prices.singleCostPrice * prices.numberOfTurnips
-        // totalSP = prices.singleSellPrice * prices.numberOfTurnips
-        // totalGP = totalSP - totalCP
-        // tipAmount = Math.round(totalGP * ( prices.tipPercentage / 100 ))
-        // netProfit = totalGP - tipAmount
-        
-        // console.log(totalCP, totalSP, totalGP, tipAmount, netProfit)
-
         return
     };
 
     function calcTotalCP() {
         totalCP = prices.singleCostPrice * prices.numberOfTurnips;
-        document.getElementById("tCP").innerHTML = totalCP;
+        document.getElementById("tCP").textContent = totalCP.toLocaleString();
     };
 
     function calcTotalSP() {
-        totalSP = prices.singleSellPrice * prices.numberOfTurnips
-        return
+        totalSP = prices.singleSellPrice * prices.numberOfTurnips;
+        document.getElementById("tSP").textContent = totalSP.toLocaleString();
     }
 
     function calcTotalGP() {
-        totalGP = totalSP - totalCP
-        return
+        totalGP = totalSP - totalCP;
+        document.getElementById("tGP").textContent = totalGP.toLocaleString();
     }
 
     function calcTipAmount() {
-        tipAmount = Math.round(totalGP * ( prices.tipPercentage / 100 ))
-        return
+        tipAmount = Math.round(totalSP * ( prices.tipPercentage / 100 ));
+        document.getElementById("tAmt").textContent = tipAmount.toLocaleString();
     }
 
     function calcNetProfit() {
-        netProfit = totalGP - tipAmount
-        return
+        netProfit = totalGP - tipAmount;
+        document.getElementById("nP").textContent = netProfit.toLocaleString();
     }
 
     return (
@@ -78,43 +70,45 @@ function App() {
                 Cost Price: 
                 <input 
                     name="singleCostPrice"
+                    type="number"
+                    pattern="[0-9*]"
                     onChange={handleChange}
                     value={prices.singleCostPrice}
-                />
-                {prices.singleCostPrice}
+                />ᴮᵉˡˡˢ
             </div>
 
             <div>
                 Selling Price: 
                 <input
                     name="singleSellPrice"
+                    type="number"
+                    pattern="[0-9*]"
                     onChange={handleChange}
                     value={prices.singleSellPrice}
-                />
-                {prices.singleSellPrice}
+                />ᴮᵉˡˡˢ
             </div>
 
             <div>
                 Number of Turnips: 
                 <input
                     name="numberOfTurnips"
+                    type="number"
+                    pattern="[0-9*]"
                     onChange={handleChange}
                     value={prices.numberOfTurnips}
                 />
-                {prices.numberOfTurnips}
             </div>
 
             <div>
                 Tip Percentage: 
                 <input
                     name="tipPercentage"
+                    type="number"
+                    pattern="[0-9*]"
                     onChange={handleChange}
                     value={prices.tipPercentage}
-                />
-                {prices.tipPercentage}
+                />%
             </div>
-
-            <hr />
 
             <div>
                 <button onClick={Calculation} type="submit">Calculate</button>
@@ -123,24 +117,25 @@ function App() {
             <hr/>
 
             <div>
-                Total Cost Price:
-                <span id="tCP">0</span>
+                Tip Amount: <span id="tAmt">0</span>
+            </div>
+
+            <hr />
+
+            <div>
+                Total Cost Price: <span id="tCP">0</span>
             </div>
 
             <div>
-                Total Sales Price:
+                Total Sales Price: <span id="tSP">0</span>
             </div>
 
             <div>
-                Gross Profit:
+                Gross Profit: <span id="tGP">0</span>
             </div>
 
             <div>
-                Tip Amount:
-            </div>
-
-            <div>
-                Net Profit:
+                Net Profit: <span id="nP">0</span>
             </div>
         </>
     );

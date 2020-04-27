@@ -69,10 +69,10 @@ function App() {
             <div className="main-area">
                 <div className="form-area">
                     <div className="form-particulars">
-                        <div className="form-label">Cost Price:</div>
+                        <div className="form-label font-light-green">Cost Price:</div>
                         <div className="form-input">
                             <input 
-                                className="amount-input"
+                                className="amount-input bold-text font-dark-green"
                                 name="singleCostPrice"
                                 type="number"
                                 pattern="[0-9*]"
@@ -80,14 +80,14 @@ function App() {
                                 value={prices.singleCostPrice}
                             />
                         </div>
-                        <div className="amount-unit">Bells</div>
+                        <div className="amount-unit font-light-green">Bells</div>
                     </div>
 
                     <div className="form-particulars">
-                        <div className="form-label">Selling Price: </div>
+                        <div className="form-label font-light-green">Selling Price: </div>
                         <div className="form-input">
                             <input
-                                className="amount-input"
+                                className="amount-input bold-text font-dark-green"
                                 name="singleSellPrice"
                                 type="number"
                                 pattern="[0-9*]"
@@ -95,14 +95,14 @@ function App() {
                                 value={prices.singleSellPrice}
                             />
                         </div>
-                        <div className="amount-unit">Bells</div>
+                        <div className="amount-unit font-light-green">Bells</div>
                     </div>
 
                     <div className="form-particulars">
-                        <div className="form-label">No. of Turnips: </div>
+                        <div className="form-label font-light-green">No. of Turnips: </div>
                         <div className="form-input">
                             <input
-                                className="amount-input"
+                                className="amount-input bold-text font-dark-green"
                                 name="numberOfTurnips"
                                 type="number"
                                 pattern="[0-9*]"
@@ -110,14 +110,14 @@ function App() {
                                 value={prices.numberOfTurnips}
                             />
                         </div>
-                        <div className="amount-unit">Units</div>
+                        <div className="amount-unit font-light-green">Units</div>
                     </div>
 
                     <div className="form-particulars">
-                        <div className="form-label">Tip: </div>
+                        <div className="form-label font-light-green">Tip: </div>
                         <div className="form-input">
                             <input
-                                className="amount-input"
+                                className="amount-input bold-text font-dark-green"
                                 name="tipPercentage"
                                 type="number"
                                 pattern="[0-9*]"
@@ -125,48 +125,48 @@ function App() {
                                 value={prices.tipPercentage}
                             />
                         </div>
-                        <div className="amount-unit">%</div>
+                        <div className="amount-unit font-light-green">%</div>
                     </div>
                 </div>
 
                 <div className="button-area">
                     <div className="button-div">
-                        <button onClick={Calculation} type="submit">Calculate</button>
+                        <button className="button-size" onClick={Calculation} type="submit">Calculate</button>
                     </div>
                 </div>
 
                 <hr/>
 
                 <div className="results-area">
-                    <div>Tip Amount:</div>
-                    <div className="results-amount"><span id="tAmt">0</span></div>
-                    <div className="amount-unit">Bells</div>
+                    <div className="font-light-green">Tip Amount:</div>
+                    <div className="results-amount bold-text font-dark-green"><span id="tAmt">0</span></div>
+                    <div className="amount-unit font-light-green">Bells</div>
                 </div>
 
                 <hr />
 
                 <div className="results-area">
-                    <div>Total Cost Price:</div>
-                    <div className="results-amount"><span id="tCP">0</span></div>
-                    <div className="amount-unit">Bells</div>
+                    <div className="font-light-green">Total Cost Price:</div>
+                    <div className="results-amount font-dark-green"><span id="tCP">0</span></div>
+                    <div className="amount-unit font-light-green">Bells</div>
                 </div>
 
                 <div className="results-area">
-                    <div>Total Sales Price:</div>
-                    <div className="results-amount"><span id="tSP">0</span></div>
-                    <div className="amount-unit">Bells</div>
+                    <div className="font-light-green">Total Sales Price:</div>
+                    <div className="results-amount font-dark-green"><span id="tSP">0</span></div>
+                    <div className="amount-unit font-light-green">Bells</div>
                 </div>
 
                 <div className="results-area">
-                    <div>Gross Profit:</div>
-                    <div className="results-amount"><span id="tGP">0</span></div>
-                    <div className="amount-unit">Bells</div>
+                    <div className="font-light-green">Gross Profit:</div>
+                    <div className="results-amount font-dark-green"><span id="tGP">0</span></div>
+                    <div className="amount-unit font-light-green">Bells</div>
                 </div>
 
                 <div className="results-area">
-                    <div>Net Profit:</div>
-                    <div className="results-amount"><span id="nP">0</span></div>
-                    <div className="amount-unit">Bells</div>
+                    <div className="font-light-green">Net Profit:</div>
+                    <div className="results-amount bold-text font-dark-green"><span id="nP">0</span></div>
+                    <div className="amount-unit font-light-green">Bells</div>
                 </div>
             </div>
         </>

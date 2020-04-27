@@ -20,7 +20,6 @@ html {
 .form-area {
     display: flex;
     flex-direction: column;
-    color: #60ac45;
 }
     
     .form-area .form-particulars {
@@ -53,9 +52,7 @@ html {
         width: 5rem;
         padding: 0 0.5rem;
         text-align: right;
-        color: #448e37;
         font-family: 'Nunito', sans-serif;
-        font-weight: 900;
     }
 
 
@@ -76,6 +73,7 @@ html {
     }
 
     .button-area button {
+        text-align: center;
         border-style: none;
         outline: none;
         -webkit-box-shadow: none;
@@ -92,6 +90,10 @@ html {
         font-family: 'Nunito', sans-serif;
     }
 
+    .button-area .button-size {
+        width: 9rem;
+    }
+
 .results-area {
     display: flex;
     padding: 0.5rem 0;
@@ -100,4 +102,16 @@ html {
 .results-amount {
     margin-left: auto;
     margin-right: 0.3rem;
+}
+
+.bold-text {
+    font-weight: 900;
+}
+
+.font-light-green {
+    color: #60ac45;
+}
+
+.font-dark-green {
+    color: #448e37;
 }

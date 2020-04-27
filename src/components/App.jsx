@@ -66,76 +66,108 @@ function App() {
 
     return (
         <>
-            <div>
-                Cost Price: 
-                <input 
-                    name="singleCostPrice"
-                    type="number"
-                    pattern="[0-9*]"
-                    onChange={handleChange}
-                    value={prices.singleCostPrice}
-                />ᴮᵉˡˡˢ
-            </div>
+            <div className="main-area">
+                <div className="form-area">
+                    <div className="form-particulars">
+                        <div className="form-label">Cost Price:</div>
+                        <div className="form-input">
+                            <input 
+                                className="amount-input"
+                                name="singleCostPrice"
+                                type="number"
+                                pattern="[0-9*]"
+                                onChange={handleChange}
+                                value={prices.singleCostPrice}
+                            />
+                        </div>
+                        <div className="amount-unit">Bells</div>
+                    </div>
 
-            <div>
-                Selling Price: 
-                <input
-                    name="singleSellPrice"
-                    type="number"
-                    pattern="[0-9*]"
-                    onChange={handleChange}
-                    value={prices.singleSellPrice}
-                />ᴮᵉˡˡˢ
-            </div>
+                    <div className="form-particulars">
+                        <div className="form-label">Selling Price: </div>
+                        <div className="form-input">
+                            <input
+                                className="amount-input"
+                                name="singleSellPrice"
+                                type="number"
+                                pattern="[0-9*]"
+                                onChange={handleChange}
+                                value={prices.singleSellPrice}
+                            />
+                        </div>
+                        <div className="amount-unit">Bells</div>
+                    </div>
 
-            <div>
-                Number of Turnips: 
-                <input
-                    name="numberOfTurnips"
-                    type="number"
-                    pattern="[0-9*]"
-                    onChange={handleChange}
-                    value={prices.numberOfTurnips}
-                />
-            </div>
+                    <div className="form-particulars">
+                        <div className="form-label">No. of Turnips: </div>
+                        <div className="form-input">
+                            <input
+                                className="amount-input"
+                                name="numberOfTurnips"
+                                type="number"
+                                pattern="[0-9*]"
+                                onChange={handleChange}
+                                value={prices.numberOfTurnips}
+                            />
+                        </div>
+                        <div className="amount-unit">Units</div>
+                    </div>
 
-            <div>
-                Tip Percentage: 
-                <input
-                    name="tipPercentage"
-                    type="number"
-                    pattern="[0-9*]"
-                    onChange={handleChange}
-                    value={prices.tipPercentage}
-                />%
-            </div>
+                    <div className="form-particulars">
+                        <div className="form-label">Tip: </div>
+                        <div className="form-input">
+                            <input
+                                className="amount-input"
+                                name="tipPercentage"
+                                type="number"
+                                pattern="[0-9*]"
+                                onChange={handleChange}
+                                value={prices.tipPercentage}
+                            />
+                        </div>
+                        <div className="amount-unit">%</div>
+                    </div>
+                </div>
 
-            <div>
-                <button onClick={Calculation} type="submit">Calculate</button>
-            </div>
+                <div className="button-area">
+                    <div className="button-div">
+                        <button onClick={Calculation} type="submit">Calculate</button>
+                    </div>
+                </div>
 
-            <hr/>
+                <hr/>
 
-            <div>
-                Tip Amount: <span id="tAmt">0</span>
-            </div>
+                <div className="results-area">
+                    <div>Tip Amount:</div>
+                    <div className="results-amount"><span id="tAmt">0</span></div>
+                    <div className="amount-unit">Bells</div>
+                </div>
 
-            <hr />
+                <hr />
 
-            <div>
-                Total Cost Price: <span id="tCP">0</span>
-            </div>
+                <div className="results-area">
+                    <div>Total Cost Price:</div>
+                    <div className="results-amount"><span id="tCP">0</span></div>
+                    <div className="amount-unit">Bells</div>
+                </div>
 
-            <div>
-                Total Sales Price: <span id="tSP">0</span>
-            </div>
+                <div className="results-area">
+                    <div>Total Sales Price:</div>
+                    <div className="results-amount"><span id="tSP">0</span></div>
+                    <div className="amount-unit">Bells</div>
+                </div>
 
-            <div>
-                Gross Profit: <span id="tGP">0</span>
-            </div>
+                <div className="results-area">
+                    <div>Gross Profit:</div>
+                    <div className="results-amount"><span id="tGP">0</span></div>
+                    <div className="amount-unit">Bells</div>
+                </div>
 
-            <div>
-                Net Profit: <span id="nP">0</span>
+                <div className="results-area">
+                    <div>Net Profit:</div>
+                    <div className="results-amount"><span id="nP">0</span></div>
+                    <div className="amount-unit">Bells</div>
+                </div>
             </div>
         </>
     );

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 // import NumberFormat from "react-number-format";
+import Header from "./Header";
+import CalcMethodNote from "./CalcMethodNote";
+import Footer from "./Footer";
 import "./layout.css"
+import AppNote from "./AppNote";
 
 function App() {
 
@@ -55,7 +59,8 @@ function App() {
     }
 
     function calcTipAmount() {
-        tipAmount = Math.round(totalSP * ( prices.tipPercentage / 100 ));
+        var rawTipAmount = totalSP * (prices.tipPercentage / 100);
+        tipAmount = Math.ceil(rawTipAmount/1000)*1000;
         document.getElementById("tAmt").textContent = tipAmount.toLocaleString();
     }
 
@@ -66,7 +71,9 @@ function App() {
 
     return (
         <>
-            <div className="main-area">
+            <Header />
+
+            <div className="area-template main-area">
                 <div className="form-area">
                     <div className="form-particulars">
                         <div className="form-label font-light-green">Cost Price:</div>
@@ -139,7 +146,7 @@ function App() {
 
                 <div className="results-area">
                     <div className="font-light-green">Tip Amount:</div>
-                    <div className="results-amount bold-text font-dark-green"><span id="tAmt">0</span></div>
+                    <div className="results-amount bold-text font-dark-green larger-text"><span id="tAmt">0</span></div>
                     <div className="amount-unit font-light-green">Bells</div>
                 </div>
 
@@ -169,6 +176,10 @@ function App() {
                     <div className="amount-unit font-light-green">Bells</div>
                 </div>
             </div>
+
+            <AppNote />
+            <CalcMethodNote />
+            <Footer />
         </>
     );
 };

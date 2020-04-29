@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;900&family=Patua+One&display=swap');
+
+/* Default CSS with iPhone 5/5s/SE(2016) screen size */
+
+html {
+    font-family: 'Nunito', sans-serif;
+    background-color: #e5ffb3;
+    background-image: url("https://www.transparenttextures.com/patterns/batthern.png");
+}
+
+body {
+    margin: 0;
+}
+
+header h1 {
+    text-align: center;
+    font-family: 'Patua One', cursive;
+    letter-spacing: 0.2rem;
+    margin-top: 1.5rem;
+    font-size: 1.6em;
+}
+
+footer {
+    background-color: #bae66d;
+}
+
+    footer p {
+        margin: 0;
+        text-align: center;
+    }
+
+    footer a {
+        color: #448e37;
+    }
+
+    footer .footer-text {
+        padding: 2rem 0;
+    }
+
+#root {
+    padding: 0;
+}
+
+.area-template {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 2rem;
+}
+
+.main-area {
+    background-color: white;
+}
+
+.main-area hr {
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: #b2d668;
+}
+
+.form-area {
+    display: flex;
+    flex-direction: column;
+}
+    
+    .form-area .form-particulars {
+        display: flex;
+        flex-direction: row;
+        padding: 0.5rem 0;
+    }
+
+    .form-area .form-label {
+        margin: auto 0;
+    }
+
+    .form-area .form-input {
+        margin-left: auto;
+        margin-right: 0.3rem;
+        text-align: right;
+        border-style: solid;
+        border-color: #b2d668;
+        border-radius: 1rem;
+    }
+
+    .form-area .amount-input {
+        background: transparent;
+        border-style: none;
+        outline: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        cursor:default;
+        width: 5rem;
+        padding: 0 0.5rem;
+        text-align: right;
+        font-family: 'Nunito', sans-serif;
+    }
+
+
+/* Reused in [form-area] and [result-area] */
+.amount-unit {
+    width: 10%;
+    text-align: right;
+    margin-top: auto;
+    font-size: 0.75rem;
+}
+
+.button-area {
+    display: flex;
+    padding: 1rem 0;
+}
+    
+    .button-area .button-div {
+        margin: 0 auto;
+    }
+
+    .button-area button {
+        text-align: center;
+        border-style: none;
+        outline: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        cursor:default;
+        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: #91db2e;
+        color: #316e35;
+        border-style: solid;
+        border-color: #b2d668;
+        border-width: 3px;
+        font-weight: 900;
+        font-size: 110%;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    .button-area .button-size {
+        width: 9rem;
+    }
+
+.results-area {
+    display: flex;
+    padding: 0.5rem 0;
+}
+
+.note-area {
+    background-color:#e4c78f;
+}
+
+    .note-area p {
+        text-align: center;
+    }
+
+    .note-area a {
+        color: #7b5b32;
+    }
+
+.results-amount {
+    margin-left: auto;
+    margin-right: 0.3rem;
+}
+
+.between-containers {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.bottom-containers {
+    margin-bottom: 1.5rem;
+}
+
+.bold-text {
+    font-weight: 900;
+}
+
+.larger-text {
+    font-size: 125%;
+}
+
+.font-light-green {
+    color: #60ac45;
+}
+
+.font-dark-green {
+    color: #448e37;
+}
+
+.font-dark-brown {
+    color: #7b5b32;
+}
+
+/* Phones larger than iPhone 5/5s/SE(2016) */
+@media (min-width: 21rem) {
+
+    header h1 {
+        font-size: 1.75em;
+        margin-top: 1.75rem;
+    }
+
+    .area-template {
+        margin: 1.5rem;
+    }
+  }
+
+/* Desktop and tablets */
+@media (min-width: 42rem) {
+    header h1 {
+        font-size: 2em;
+        margin-top: 2rem;
+    }
+
+    .area-template {
+        width: 480px;
+        margin: 2rem auto;
+    }
+
+    .form-area .form-input {
+        margin-right: 0;
+    }
+
+    .wrapper-desktop {
+        margin: 0 2rem;
+    }
+}

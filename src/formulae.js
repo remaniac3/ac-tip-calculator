@@ -1,31 +1,29 @@
 const formulae = [
     {
         id: 1,
-        fullName: "Cost Price (1 Unit):",
-        type: "number",
-        nameID: "costPriceSingle"
+        fullName: "Total Cost Price",
     },
 
     {
         id: 2,
-        fullName: "Selling Price (1 Unit)",
-        type: "number",
-        nameID: "sellPriceSingle"
+        fullName: "Total Sales",
     },
 
     {
         id: 3,
-        fullName: "Number of Turnips Sold",
-        type: "number",
-        nameID: "numOfTurnips"
+        fullName: "Gross Profit",
     },
 
     {
         id: 4,
-        fullName: "Tip Percentage (%)",
-        type: "number",
-        nameID: "tipPercentage"
+        fullName: "Tip Amount",
+    },
+
+    {
+        id: 5,
+        fullName: "Net Profit",
     }
+
 ]
 
 export default formulae;

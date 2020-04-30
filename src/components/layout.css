@@ -133,6 +133,15 @@ footer {
         font-family: 'Nunito', sans-serif;
     }
 
+    .button-area button:hover{
+        border-color: #316e35;
+    }
+
+    .button-area button:active {
+        color: #91db2e;
+        background-color: #316e35;
+    }
+
     .button-area .button-size {
         width: 9rem;
     }

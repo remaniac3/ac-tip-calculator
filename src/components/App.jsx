@@ -2,9 +2,12 @@ import React, { useState } from "react";
 // import NumberFormat from "react-number-format";
 import Header from "./Header";
 import CalcMethodNote from "./CalcMethodNote";
-import Footer from "./Footer";
-import "./layout.css"
 import AppNote from "./AppNote";
+import Footer from "./Footer";
+
+import "./layout.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
 
@@ -22,6 +25,14 @@ function App() {
         numberOfTurnips: "",
         tipPercentage: "",
     });
+
+    // Limit iOS keyboard input.
+    if(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream)
+    {
+        var inputNumLock = document.querySelectorAll('input[type="number"]');
+        for(var i = inputNumLock.length; i--;)
+            inputNumLock[i].setAttribute('pattern', '\\d*');
+    }
 
     function handleChange(event) {
         const {value, name} = event.target;
@@ -58,15 +69,21 @@ function App() {
     };
 
     // Reset value back to zero.
-    function clearValue() {
+    function clearValue(event) {
         totalCP = 0;
         totalSP = 0;
         totalGP = 0;
         tipAmount = 0;
         netProfit = 0;
-
-        console.log(totalCP, totalSP, totalGP, tipAmount, netProfit)
         printAmount();
+
+        // Clear the input areas (controlled).
+        setPrices({
+            singleCostPrice:  "",
+            singleSellPrice:  "",
+            numberOfTurnips:  "",
+            tipPercentage: "",
+        });
     }
 
     return (
@@ -143,8 +160,9 @@ function App() {
                 <div className="button-area">
                     <div className="button-div">
                         <button className="button-size" onClick={Calculation} type="submit">Calculate</button>
-
-                        <button className="button-size" onClick={clearValue}>dummy</button>
+                    </div>
+                    <div className="button-div">
+                        <button className="button-reset" onClick={clearValue}><FontAwesomeIcon icon={faRedoAlt} /></button>
                     </div>
                 </div>
 

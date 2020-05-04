@@ -13,6 +13,7 @@ body {
 
 input[type='text'],
 input[type='number'],
+input[type='tel'],
 textarea {
   font-size: 1rem;
 }

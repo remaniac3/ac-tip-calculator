@@ -12,6 +12,9 @@ This app is still under development and will be improved over time.
 If you come across any issues using the site, or would like to suggest something, feel free to slide me a DM on [Twitter](https://twitter.com/remaniac3) or drop me an [email](mailto:r3maniac@gmail.com).
 
 ## Changelog
+#### [v1.1.1] - 04/05/2020
+- Minor optimizations of input boxes.
+
 #### [v1.1] - 03/05/2020
 - Added functionality to reset the form.
 - Minor stylesheet adjustments and bug fixes.

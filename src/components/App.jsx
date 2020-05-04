@@ -11,7 +11,6 @@ import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
 
-
     let totalCP = 0;
     let totalSP = 0;
     let totalGP = 0;
@@ -59,7 +58,6 @@ function App() {
         // Eliminate separators to avoid NaN.
         let numOfTurnips = prices.numberOfTurnips;
         numOfTurnips = numOfTurnips.replace(/,/g, "");
-        console.log(numOfTurnips)
 
         totalCP = prices.singleCostPrice * numOfTurnips;
         totalSP = prices.singleSellPrice * numOfTurnips;
@@ -150,13 +148,14 @@ function App() {
                         <div className="form-particulars">
                             <div className="form-label font-light-green">Tip: </div>
                             <div className="form-input">
-                                <input
-                                    className="amount-input bold-text font-dark-green"
-                                    name="tipPercentage"
-                                    type="number"
-                                    pattern="[0-9*]"
+                                <NumberFormat
+                                    type={"tel"}
+                                    allowNegative={false}
+                                    format="##"
+                                    name={"tipPercentage"}
                                     onChange={handleChange}
                                     value={prices.tipPercentage}
+                                    className={"amount-input bold-text font-dark-green"}
                                 />
                             </div>
                             <div className="amount-unit font-light-green">%</div>

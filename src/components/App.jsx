@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import NumberFormat from "react-number-format";
+import NumberFormat from "react-number-format";
 import Header from "./Header";
 import CalcMethodNote from "./CalcMethodNote";
 import AppNote from "./AppNote";
@@ -10,8 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
-
-    // var NumberFormat = require("react-number-format");
 
     let totalCP = 0;
     let totalSP = 0;
@@ -56,8 +54,13 @@ function App() {
 
     // Calculation function.
     function Calculation() {
-        totalCP = prices.singleCostPrice * prices.numberOfTurnips;
-        totalSP = prices.singleSellPrice * prices.numberOfTurnips;
+        
+        // Eliminate separators to avoid NaN.
+        let numOfTurnips = prices.numberOfTurnips;
+        numOfTurnips = numOfTurnips.replace(/,/g, "");
+
+        totalCP = prices.singleCostPrice * numOfTurnips;
+        totalSP = prices.singleSellPrice * numOfTurnips;
         totalGP = totalSP - totalCP;
 
         var rawTipAmount = totalSP * (prices.tipPercentage / 100);
@@ -97,13 +100,14 @@ function App() {
                         <div className="form-particulars">
                             <div className="form-label font-light-green">Cost Price:</div>
                             <div className="form-input">
-                                <input 
-                                    className="amount-input bold-text font-dark-green"
-                                    name="singleCostPrice"
-                                    type="number"
-                                    pattern="[0-9*]"
+                                <NumberFormat
+                                    type={"tel"}
+                                    allowNegative={false}
+                                    format="###"
+                                    name={"singleCostPrice"}
                                     onChange={handleChange}
                                     value={prices.singleCostPrice}
+                                    className={"amount-input bold-text font-dark-green"}
                                 />
                             </div>
                             <div className="amount-unit font-light-green">Bells</div>
@@ -112,13 +116,14 @@ function App() {
                         <div className="form-particulars">
                             <div className="form-label font-light-green">Selling Price: </div>
                             <div className="form-input">
-                                <input
-                                    className="amount-input bold-text font-dark-green"
-                                    name="singleSellPrice"
-                                    type="number"
-                                    pattern="[0-9*]"
+                                <NumberFormat
+                                    type={"tel"}
+                                    allowNegative={false}
+                                    format="###"
+                                    name={"singleSellPrice"}
                                     onChange={handleChange}
                                     value={prices.singleSellPrice}
+                                    className={"amount-input bold-text font-dark-green"}
                                 />
                             </div>
                             <div className="amount-unit font-light-green">Bells</div>
@@ -127,13 +132,14 @@ function App() {
                         <div className="form-particulars">
                             <div className="form-label font-light-green">No. of Turnips: </div>
                             <div className="form-input">
-                                <input
-                                    className="amount-input bold-text font-dark-green"
-                                    name="numberOfTurnips"
-                                    type="number"
-                                    pattern="[0-9*]"
+                                <NumberFormat
+                                    type={"tel"}
+                                    allowNegative={false}
+                                    thousandSeparator={true}
+                                    name={"numberOfTurnips"}
                                     onChange={handleChange}
                                     value={prices.numberOfTurnips}
+                                    className={"amount-input bold-text font-dark-green"}
                                 />
                             </div>
                             <div className="amount-unit font-light-green">Units</div>
@@ -142,13 +148,14 @@ function App() {
                         <div className="form-particulars">
                             <div className="form-label font-light-green">Tip: </div>
                             <div className="form-input">
-                                <input
-                                    className="amount-input bold-text font-dark-green"
-                                    name="tipPercentage"
-                                    type="number"
-                                    pattern="[0-9*]"
+                                <NumberFormat
+                                    type={"tel"}
+                                    allowNegative={false}
+                                    format="##"
+                                    name={"tipPercentage"}
                                     onChange={handleChange}
                                     value={prices.tipPercentage}
+                                    className={"amount-input bold-text font-dark-green"}
                                 />
                             </div>
                             <div className="amount-unit font-light-green">%</div>
